@@ -1,67 +1,132 @@
-<html>
-  <head>
-    <meta />
-    <meta />
-    <title>Document</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <title>Kanban Task Manager</title>
 
-  <body>
-    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
-    <nav>
-      <div>
-        <h4>ALL BOARDS (1)</h4>
-        <button>Launch Career</button>
-      </div>
-    </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'main-purple': '#635FC7',
+              'light-grey': '#F4F7FD',
+              'medium-grey': '#828FA3',
+              'dark-grey': '#2B2C37',
+              'black': '#000112',
+              'white': '#FFFFFF',
+              'todo-blue': '#49C4E5',
+              'doing-purple': '#8471F2',
+              'done-green': '#67E2AE',
+            },
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+            },
+            fontSize: {
+              'heading-xl': ['24px', { fontWeight: '700' }],
+              'heading-m': ['15px', { fontWeight: '700' }],
+              'body-s': ['12px', { fontWeight: '700', letterSpacing: '2.4px' }],
+            },
+            boxShadow: {
+              'card': '0px 4px 6px rgba(54, 78, 126, 0.1015)',
+            }
+          }
+        }
+      }
+    </script>
+</head>
 
-    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
-    <div>
-      <header>
-        <div>
-          <h2>Launch Career</h2>
+<body class="bg-light-grey font-sans">
+    <div class="flex">
+        <aside class="w-[300px] h-screen bg-white hidden md:flex flex-col border-r border-gray-200">
+            <div class="p-8">
+                <img src="./assets/logo-light.svg" alt="Kanban Logo">
+            </div>
+            <div class="flex-1">
+                <h2 class="text-body-s text-medium-grey px-8 mb-4">ALL BOARDS (1)</h2>
+                <div class="pr-6">
+                     <button class="w-full flex items-center px-8 py-3 bg-main-purple text-white text-heading-m rounded-r-full">
+                        <img src="./assets/icon-board.svg" alt="Board Icon" class="mr-3"> 
+                        <span>Launch Career</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex-1">
+            <header class="w-full h-24 bg-white flex items-center justify-between px-6 border-b border-gray-200">
+                <div class="flex items-center space-x-4 md:hidden">
+                    <img src="./assets/icon-board.svg" alt="Board Icon"> 
+                    <h2 class="text-heading-xl text-black">Launch Career</h2>
+                    <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"><path stroke="#635FC7" stroke-width="2" fill="none" d="m1 1 4 4 4-4"/></svg>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <h2 class="text-heading-xl text-black">Launch Career</h2>
+                </div>
+            </header>
+
+            <main class="p-6 grid space-y-6 md:flex md:space-x-6 md:space-y-0 overflow-y-auto h-[calc(100vh-96px)]">
+                <section class="w-full md:w-[280px] flex-shrink-0">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="w-4 h-4 bg-todo-blue rounded-full"></span>
+                        <h3 class="text-body-s text-medium-grey">TODO (4)</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Launch Epic Career 🚀</h4>
+                        </article>
+                        <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Conquer React ⚛</h4>
+                        </article>
+                         <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Understand Databases ⚙</h4>
+                        </article>
+                         <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Crush Frameworks 🖼</h4>
+                        </article>
+                    </div>
+                </section>
+                <section class="w-full md:w-[280px] flex-shrink-0">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="w-4 h-4 bg-doing-purple rounded-full"></span>
+                        <h3 class="text-body-s text-medium-grey">DOING (2)</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Master JavaScript 💛</h4>
+                        </article>
+                        <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Never Give Up 🏆</h4>
+                        </article>
+                    </div>
+                </section>
+                <section class="w-full md:w-[280px] flex-shrink-0">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="w-4 h-4 bg-done-green rounded-full"></span>
+                        <h3 class="text-body-s text-medium-grey">DONE (3)</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Explore ES6 Features 🚀</h4>
+                        </article>
+                         <article class="p-4 bg-white rounded-lg shadow-card">
+                            <h4 class="text-heading-m text-black">Have fun 🥳</h4>
+                        </article>
+                    </div>
+                </section>
+            </main>
         </div>
-      </header>
-
-      <div>
-        <main>
-          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
-          <div>
-            <div>
-              <span></span>
-              <h4>TODO</h4>
-            </div>
-            <!-- Tasks container for TODO -->
-            <div>
-              <div>Launch Epic Career 🚀</div>
-              <div>Learn Data Structures and Algorithms 📚</div>
-            </div>
-          </div>
-          <!-- DOING Column -->
-          <div>
-            <div>
-              <span></span>
-              <h4>DOING</h4>
-            </div>
-            <!-- Tasks container for DOING -->
-            <div>
-              <div>Master JavaScript 💛</div>
-              <div>Keep on Going 🏆</div>
-            </div>
-          </div>
-          <!-- DONE Column -->
-          <div>
-            <div>
-              <span></span>
-              <h4>DONE</h4>
-            </div>
-            <!-- Tasks container for DONE -->
-            <div>
-              <div>Contribute to Open Source Projects 🌐</div>
-              <div>Build Portfolio Projects 🛠️</div>
-            </div>
-          </div>
-        </main>
-      </div>
     </div>
-  </body>
+
+    <script src="script.js"></script>
+</body>
 </html>
